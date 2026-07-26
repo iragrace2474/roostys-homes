@@ -1,3 +1,7 @@
+// PLACEHOLDER PAGE — the post cards below are template filler (Lorem Ipsum,
+// sample dates/authors). Replace with real Roosty's Homes news, events, or blog
+// posts when available. Roosty's gardens are also available for weddings,
+// parties and functions — this page could showcase those instead.
 export default function Events() {
   return (
     <>
@@ -9,8 +13,8 @@ export default function Events() {
         <div className="container">
           <div className="row align-items-center justify-content-center">
             <div className="col-md-7 text-center" data-aos="fade">
-              <span className="caption mb-3">Read Our</span>
-              <h1 className="mb-4">Blogs &amp; Events</h1>
+              <span className="caption mb-3">Roosty&apos;s Homes</span>
+              <h1 className="mb-4">Events &amp; Updates</h1>
             </div>
           </div>
         </div>

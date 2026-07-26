@@ -5,7 +5,9 @@ import ThemeRuntime from './theme-runtime';
 import AnalyticsScripts from './analytics-scripts';
 
 export const metadata: Metadata = {
-  title: 'Suite — Colorlib Website Template',
+  title: "Roosty's Homes — Comfort, Great Food & Peaceful Stays in Mbarara",
+  description:
+    "Roosty's Homes offers cozy cottages, modern apartments, a vibrant bar and restaurant, beautiful gardens and a kids' play area in Ruharo Nkokonjeru, Mbarara City.",
 };
 
 export default function RootLayout({
@@ -64,7 +66,7 @@ export default function RootLayout({
                   <div className="row align-items-center">
                     <div className="col-2">
                       <h2 className="mb-0 site-logo">
-                        <Link href="/">Suites</Link>
+                        <Link href="/">Roosty&apos;s Homes</Link>
                       </h2>
                     </div>
                     <div className="col-10">
@@ -93,13 +95,14 @@ export default function RootLayout({
                 <div className="col-md-4">
                   <h3 className="footer-heading mb-4 text-white">About</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quos rem
-                    ullam, placeat amet.
+                    Roosty&apos;s Homes offers cozy cottages, a lively bar and restaurant,
+                    beautiful gardens, and a fun, safe kids&apos; playground &mdash; where comfort
+                    meets great food, refreshing drinks, and peaceful stays.
                   </p>
                   <p>
-                    <a href="#" className="btn btn-primary pill text-white px-4">
+                    <Link href="/about" className="btn btn-primary pill text-white px-4">
                       Read More
-                    </a>
+                    </Link>
                   </p>
                 </div>
                 <div className="col-md-6">
@@ -107,22 +110,20 @@ export default function RootLayout({
                     <div className="col-md-6">
                       <h3 className="footer-heading mb-4 text-white">Quick Menu</h3>
                       <ul className="list-unstyled">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Approach</a></li>
-                        <li><a href="#">Sustainability</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Careers</a></li>
+                        <li><Link href="/">Home</Link></li>
+                        <li><Link href="/about">About Us</Link></li>
+                        <li><Link href="/rooms">Rooms</Link></li>
+                        <li><Link href="/events">Events</Link></li>
+                        <li><Link href="/contact">Contact</Link></li>
                       </ul>
                     </div>
                     <div className="col-md-6">
-                      <h3 className="footer-heading mb-4 text-white">Ministries</h3>
+                      <h3 className="footer-heading mb-4 text-white">Get In Touch</h3>
                       <ul className="list-unstyled">
-                        <li><a href="#">Children</a></li>
-                        <li><a href="#">Women</a></li>
-                        <li><a href="#">Bible Study</a></li>
-                        <li><a href="#">Church</a></li>
-                        <li><a href="#">Missionaries</a></li>
+                        <li>Ruharo Nkokonjeru, Mbarara City</li>
+                        <li><a href="tel:+256707113630">+256 707 113630</a></li>
+                        <li><a href="tel:+256768640830">+256 768 640830</a></li>
+                        <li><a href="mailto:info@roostyshomes.com">info@roostyshomes.com</a></li>
                       </ul>
                     </div>
                   </div>
@@ -154,8 +155,9 @@ export default function RootLayout({
                 <div className="col-md-12">
                   <p>
                     {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
-                    Copyright &copy; {new Date().getFullYear()} All Rights Reserved | This template is made
-                    with <i className="icon-heart text-primary" aria-hidden="true"></i> by{' '}
+                    Copyright &copy; {new Date().getFullYear()} Roosty&apos;s Homes. All Rights
+                    Reserved | Template made with{' '}
+                    <i className="icon-heart text-primary" aria-hidden="true"></i> by{' '}
                     <a href="https://colorlib.com/" target="_blank" rel="noopener noreferrer">
                       Colorlib
                     </a>

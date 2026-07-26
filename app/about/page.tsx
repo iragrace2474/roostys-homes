@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function About() {
   return (
     <>
@@ -9,7 +11,7 @@ export default function About() {
         <div className="container">
           <div className="row align-items-center justify-content-center">
             <div className="col-md-7 text-center" data-aos="fade">
-              <span className="caption mb-3">Suites Hotel &amp; Resort</span>
+              <span className="caption mb-3">Roosty&apos;s Homes, Perfect Service</span>
               <h1 className="mb-4">About Us</h1>
             </div>
           </div>
@@ -33,12 +35,18 @@ export default function About() {
             </div>
             <div className="col-md-5 ml-auto">
               <div className="section-heading text-left">
-                <h2 className="mb-5">About Us</h2>
+                <h2 className="mb-5">About Roosty&apos;s Homes</h2>
               </div>
               <p className="mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi Lorem ipsum
-                dolor sit amet, consectetur adipisicing elit. Odit nobis magni eaque velit eum, id
-                rem eveniet dolor possimus voluptas..
+                Roosty&apos;s Homes offers a welcoming restaurant and bar serving delicious meals
+                and refreshing drinks, paired with comfortable accommodation. Enjoy a relaxing stay
+                with great hospitality, serene surroundings, quality service, and spaces perfect for
+                dining, leisure, family time, and peaceful rest.
+              </p>
+              <p className="mb-4">
+                Roosty&apos;s Homes ensures guest safety with secure premises, controlled access,
+                attentive staff, and well-maintained facilities, offering a peaceful, protected
+                environment.
               </p>
               <p>
                 <a href="https://vimeo.com/28959265" className="popup-vimeo text-uppercase">
@@ -50,11 +58,16 @@ export default function About() {
         </div>
       </div>
 
+      {/*
+        PLACEHOLDER SECTION — no real staff data was provided. Names, photos and
+        bios below are template filler; replace with the real Roosty's Homes team
+        (or delete this whole section) when the details are available.
+      */}
       <div className="site-section bg-light">
         <div className="container">
           <div className="row">
             <div className="col-md-6 mx-auto text-center mb-5 section-heading">
-              <h2 className="mb-5">Hotel Staffs</h2>
+              <h2 className="mb-5">Our Team</h2>
             </div>
           </div>
           <div className="row">
@@ -142,14 +155,14 @@ export default function About() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6">
-              <h2 className="text-white">Summer Promo 50% Off</h2>
-              <a href="#" className="text-white btn btn-outline-warning rounded-0 text-uppercase">
-                Avail Now
-              </a>
+              <h2 className="text-white">Host Your Event With Us</h2>
+              <Link href="/contact" className="text-white btn btn-outline-warning rounded-0 text-uppercase">
+                Enquire Now
+              </Link>
             </div>
             <div className="col-md-6">
-              <span className="caption">The Promo will start in</span>
-              <div id="date-countdown"></div>
+              <span className="caption">Gardens available for hire</span>
+              <h3 className="text-white">Weddings, Parties &amp; Functions</h3>
             </div>
           </div>
         </div>
@@ -159,26 +172,26 @@ export default function About() {
         <div className="container">
           <div className="row">
             <div className="col-md-6 mx-auto text-center mb-5 section-heading">
-              <h2 className="mb-5">Hotel Features</h2>
+              <h2 className="mb-5">Our Amenities</h2>
             </div>
           </div>
           <div className="row">
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-pool display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Swimming Pool</h2>
+                <h2 className="h5">Pool Table</h2>
               </div>
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-desk display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Hotel Teller</h2>
+                <h2 className="h5">24/7 Reservation</h2>
               </div>
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-exit display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Fire Exit</h2>
+                <h2 className="h5">Secure Premises</h2>
               </div>
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3">
@@ -191,26 +204,26 @@ export default function About() {
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-hair-dryer display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Hair Dryer</h2>
+                <h2 className="h5">Room Service</h2>
               </div>
             </div>
 
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-minibar display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Minibar</h2>
+                <h2 className="h5">Bar &amp; Restaurant</h2>
               </div>
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-drink display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Drinks</h2>
+                <h2 className="h5">Cocktails &amp; Fresh Juice</h2>
               </div>
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-cab display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Car Airport</h2>
+                <h2 className="h5">Online Booking</h2>
               </div>
             </div>
           </div>

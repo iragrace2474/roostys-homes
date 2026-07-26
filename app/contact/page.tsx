@@ -60,13 +60,19 @@ export default function Contact() {
               <div className="p-4 mb-3 bg-white">
                 <h3 className="h5 text-black mb-3">Contact Info</h3>
                 <p className="mb-0 font-weight-bold">Address</p>
-                <p className="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+                <p className="mb-4">Ruharo Nkokonjeru, Mbarara City, Uganda</p>
 
                 <p className="mb-0 font-weight-bold">Phone</p>
-                <p className="mb-4"><a href="#">+1 232 3235 324</a></p>
+                <p className="mb-4">
+                  <a href="tel:+256707113630">+256 707 113630</a><br />
+                  <a href="tel:+256768640830">+256 768 640830</a>
+                </p>
 
                 <p className="mb-0 font-weight-bold">Email Address</p>
-                <p className="mb-0"><a href="#">youremail@domain.com</a></p>
+                <p className="mb-0">
+                  <a href="mailto:info@roostyshomes.com">info@roostyshomes.com</a><br />
+                  <a href="mailto:roostyshomes@gmail.com">roostyshomes@gmail.com</a>
+                </p>
               </div>
             </div>
           </div>

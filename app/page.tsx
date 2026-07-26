@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import OwlCarousel from './owl-carousel';
 
 // Owl Carousel configs, copied verbatim from the theme's main.js so the
@@ -74,8 +75,8 @@ export default function Home() {
           <div className="container">
             <div className="row align-items-center justify-content-center">
               <div className="col-md-7 text-center" data-aos="fade">
-                <h1 className="mb-2">Welcome To Suites</h1>
-                <h2 className="caption">Hotel &amp; Resort</h2>
+                <h1 className="mb-2">Discover Comfort</h1>
+                <h2 className="caption">Welcome to Roosty&apos;s Homes</h2>
               </div>
             </div>
           </div>
@@ -89,8 +90,8 @@ export default function Home() {
           <div className="container">
             <div className="row align-items-center justify-content-center">
               <div className="col-md-7 text-center" data-aos="fade">
-                <h1 className="mb-2">Unique Experience</h1>
-                <h2 className="caption">Enjoy With Us</h2>
+                <h1 className="mb-2">Great Food &amp; Drinks</h1>
+                <h2 className="caption">Bar &bull; Restaurant &bull; Gardens</h2>
               </div>
             </div>
           </div>
@@ -104,8 +105,8 @@ export default function Home() {
           <div className="container">
             <div className="row align-items-center justify-content-center">
               <div className="col-md-7 text-center" data-aos="fade">
-                <h1 className="mb-2">Relaxing Room</h1>
-                <h2 className="caption">Your Room, Your Stay</h2>
+                <h1 className="mb-2">Peaceful Stays</h1>
+                <h2 className="caption">Cottages &amp; Apartments</h2>
               </div>
             </div>
           </div>
@@ -120,72 +121,60 @@ export default function Home() {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-6 col-lg-4 mb-5">
+            <div className="col-md-6 col-lg-3 mb-5">
               <div className="hotel-room text-center">
-                <a href="#" className="d-block mb-0 thumbnail">
-                  <img src="/theme/images/img_1.jpg" alt="Image" className="img-fluid" fetchPriority="high" decoding="sync" />
-                </a>
+                <Link href="/rooms" className="d-block mb-0 thumbnail">
+                  <img src="/theme/images/img_3.jpg" alt="One Bedroom Occupancy" className="img-fluid" fetchPriority="high" decoding="sync" />
+                </Link>
                 <div className="hotel-room-body">
-                  <h3 className="heading mb-0"><a href="#">Standard Room</a></h3>
-                  <strong className="price">$350.00 / per night</strong>
+                  <h3 className="heading mb-0"><Link href="/rooms">One Bedroom Occupancy</Link></h3>
+                  <strong className="price">UGX 200,000 / per night</strong>
+                  <span className="d-block text-muted small mt-2">2 Guests &middot; 190 sqm</span>
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-lg-4 mb-5">
+            <div className="col-md-6 col-lg-3 mb-5">
               <div className="hotel-room text-center">
-                <a href="#" className="d-block mb-0 thumbnail">
-                  <img src="/theme/images/img_2.jpg" alt="Image" className="img-fluid" fetchPriority="high" decoding="sync" />
-                </a>
+                <Link href="/rooms" className="d-block mb-0 thumbnail">
+                  <img src="/theme/images/img_1.jpg" alt="Deluxe Cottage" className="img-fluid" fetchPriority="high" decoding="sync" />
+                </Link>
                 <div className="hotel-room-body">
-                  <h3 className="heading mb-0"><a href="#">Family Room</a></h3>
-                  <strong className="price">$400.00 / per night</strong>
+                  <h3 className="heading mb-0"><Link href="/rooms">Deluxe Cottage</Link></h3>
+                  <strong className="price">UGX 200,000 / per night</strong>
+                  <span className="d-block text-muted small mt-2">2 Guests &middot; 600 sqm</span>
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-lg-4 mb-5">
+            <div className="col-md-6 col-lg-3 mb-5">
               <div className="hotel-room text-center">
-                <a href="#" className="d-block mb-0 thumbnail">
-                  <img src="/theme/images/img_3.jpg" alt="Image" className="img-fluid" loading="lazy" decoding="async" />
-                </a>
+                <Link href="/rooms" className="d-block mb-0 thumbnail">
+                  <img src="/theme/images/img_2.jpg" alt="Two Bedroom Occupancy" className="img-fluid" loading="lazy" decoding="async" />
+                </Link>
                 <div className="hotel-room-body">
-                  <h3 className="heading mb-0"><a href="#">Single Room</a></h3>
-                  <strong className="price">$255.00 / per night</strong>
+                  <h3 className="heading mb-0"><Link href="/rooms">Two Bedroom Occupancy</Link></h3>
+                  <strong className="price">UGX 250,000 / per night</strong>
+                  <span className="d-block text-muted small mt-2">6 Guests &middot; 150 sqm</span>
                 </div>
               </div>
             </div>
-
-            <div className="col-md-6 col-lg-4 mb-5">
+            <div className="col-md-6 col-lg-3 mb-5">
               <div className="hotel-room text-center">
-                <a href="#" className="d-block mb-0 thumbnail">
-                  <img src="/theme/images/img_1.jpg" alt="Image" className="img-fluid" loading="lazy" decoding="async" />
-                </a>
+                <Link href="/rooms" className="d-block mb-0 thumbnail">
+                  <img src="/theme/images/img_4.jpg" alt="Family Suite" className="img-fluid" loading="lazy" decoding="async" />
+                </Link>
                 <div className="hotel-room-body">
-                  <h3 className="heading mb-0"><a href="#">Deluxe Room</a></h3>
-                  <strong className="price">$150.00 / per night</strong>
+                  <h3 className="heading mb-0"><Link href="/rooms">Family Suite</Link></h3>
+                  <strong className="price">UGX 360,000 / per night</strong>
+                  <span className="d-block text-muted small mt-2">4 Guests &middot; 400 sqm</span>
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-lg-4 mb-5">
-              <div className="hotel-room text-center">
-                <a href="#" className="d-block mb-0 thumbnail">
-                  <img src="/theme/images/img_2.jpg" alt="Image" className="img-fluid" loading="lazy" decoding="async" />
-                </a>
-                <div className="hotel-room-body">
-                  <h3 className="heading mb-0"><a href="#">Luxury Room</a></h3>
-                  <strong className="price">$200.00 / per night</strong>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-4 mb-5">
-              <div className="hotel-room text-center">
-                <a href="#" className="d-block mb-0 thumbnail">
-                  <img src="/theme/images/img_3.jpg" alt="Image" className="img-fluid" loading="lazy" decoding="async" />
-                </a>
-                <div className="hotel-room-body">
-                  <h3 className="heading mb-0"><a href="#">Single Room</a></h3>
-                  <strong className="price">$155.00 / per night</strong>
-                </div>
-              </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <Link href="/rooms" className="btn btn-primary pill text-white px-4">
+                View All Rooms
+              </Link>
             </div>
           </div>
         </div>
@@ -208,17 +197,18 @@ export default function Home() {
             </div>
             <div className="col-md-5 ml-auto">
               <div className="section-heading text-left">
-                <h2 className="mb-5">About Us</h2>
+                <h2 className="mb-5">About Roosty&apos;s Homes</h2>
               </div>
               <p className="mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi Lorem ipsum
-                dolor sit amet, consectetur adipisicing elit. Odit nobis magni eaque velit eum, id
-                rem eveniet dolor possimus voluptas..
+                Experience the ultimate getaway at Roosty&apos;s Homes. From cozy cottages and
+                modern apartments to our vibrant bar, restaurant, lush gardens, and fun kids&apos;
+                play area &mdash; where comfort meets great food, refreshing drinks, and peaceful
+                stays.
               </p>
               <p>
-                <a href="https://vimeo.com/28959265" className="popup-vimeo text-uppercase">
-                  Watch Video <span className="icon-arrow-right small"></span>
-                </a>
+                <Link href="/about" className="text-uppercase">
+                  Learn More <span className="icon-arrow-right small"></span>
+                </Link>
               </p>
             </div>
           </div>
@@ -229,26 +219,26 @@ export default function Home() {
         <div className="container">
           <div className="row">
             <div className="col-md-6 mx-auto text-center mb-5 section-heading">
-              <h2 className="mb-5">Hotel Features</h2>
+              <h2 className="mb-5">Our Amenities</h2>
             </div>
           </div>
           <div className="row">
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-pool display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Swimming Pool</h2>
+                <h2 className="h5">Pool Table</h2>
               </div>
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-desk display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Hotel Teller</h2>
+                <h2 className="h5">24/7 Reservation</h2>
               </div>
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-exit display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Fire Exit</h2>
+                <h2 className="h5">Secure Premises</h2>
               </div>
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3">
@@ -261,26 +251,26 @@ export default function Home() {
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-hair-dryer display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Hair Dryer</h2>
+                <h2 className="h5">Room Service</h2>
               </div>
             </div>
 
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-minibar display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Minibar</h2>
+                <h2 className="h5">Bar &amp; Restaurant</h2>
               </div>
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-drink display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Drinks</h2>
+                <h2 className="h5">Cocktails &amp; Fresh Juice</h2>
               </div>
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3">
               <div className="text-center p-4 item">
                 <span className="flaticon-cab display-3 mb-3 d-block text-primary"></span>
-                <h2 className="h5">Car Airport</h2>
+                <h2 className="h5">Online Booking</h2>
               </div>
             </div>
           </div>
@@ -294,14 +284,14 @@ export default function Home() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6">
-              <h2 className="text-white">Summer Promo 50% Off</h2>
-              <a href="#" className="text-white btn btn-outline-warning rounded-0 text-uppercase">
-                Avail Now
-              </a>
+              <h2 className="text-white">Host Your Event With Us</h2>
+              <Link href="/contact" className="text-white btn btn-outline-warning rounded-0 text-uppercase">
+                Enquire Now
+              </Link>
             </div>
             <div className="col-md-6">
-              <span className="caption">The Promo will start in</span>
-              <div id="date-countdown"></div>
+              <span className="caption">Gardens available for hire</span>
+              <h3 className="text-white">Weddings, Parties &amp; Functions</h3>
             </div>
           </div>
         </div>
@@ -360,11 +350,16 @@ export default function Home() {
         </div>
       </div>
 
+      {/*
+        PLACEHOLDER SECTION — "Latest Updates" cards below use template filler
+        text (Lorem Ipsum, sample dates/authors). Replace with real Roosty's
+        Homes news/blog posts, or delete this whole section, when ready.
+      */}
       <div className="site-section block-15">
         <div className="container">
           <div className="row">
             <div className="col-md-6 mx-auto text-center mb-5 section-heading">
-              <h2>Upcoming Events</h2>
+              <h2>Latest Updates</h2>
             </div>
           </div>
 
@@ -471,6 +466,11 @@ export default function Home() {
         </div>
       </div>
 
+      {/*
+        PLACEHOLDER SECTION — testimonials below are template filler with
+        invented names/quotes. Replace with real guest reviews, or delete this
+        whole section, before going live.
+      */}
       <div className="site-section block-14 bg-light">
         <div className="container">
           <div className="row">
