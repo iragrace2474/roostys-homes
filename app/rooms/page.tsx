@@ -78,7 +78,7 @@ export default function Rooms() {
         .roberto-scope .breadcrumb-content .breadcrumb { display:flex; flex-wrap:wrap; padding:0; margin-bottom:0; background-color:transparent; list-style:none; }
         .roberto-scope .breadcrumb-content .breadcrumb .breadcrumb-item { color:#fff; }
         .roberto-scope .breadcrumb-content .breadcrumb .breadcrumb-item a { color:#fff; }
-        .roberto-scope .breadcrumb-content .breadcrumb .breadcrumb-item a:hover { color:#1cc3b2; }
+        .roberto-scope .breadcrumb-content .breadcrumb .breadcrumb-item a:hover { color:#f23a2e; }
         .roberto-scope .breadcrumb-content .breadcrumb .breadcrumb-item + .breadcrumb-item { padding-left:.5rem; }
         .roberto-scope .breadcrumb-content .breadcrumb .breadcrumb-item + .breadcrumb-item::before { content:'\\f105'; font-family:'RobertoFA'; color:#fff; padding-right:.5rem; }
 
@@ -88,12 +88,12 @@ export default function Rooms() {
         .roberto-scope .single-room-area .room-thumbnail img { border-radius:4px; width:100%; }
         .roberto-scope .single-room-area .room-content { position:relative; z-index:1; padding-left:35px; }
         .roberto-scope .single-room-area .room-content h2 { font-size:30px; display:block; margin-bottom:5px; }
-        .roberto-scope .single-room-area .room-content h4 { color:#1cc3b2; margin-bottom:20px; font-size:24px; }
+        .roberto-scope .single-room-area .room-content h4 { color:#f23a2e; margin-bottom:20px; font-size:24px; }
         .roberto-scope .single-room-area .room-content h4 span { color:#afb4bf; font-size:14px; }
         .roberto-scope .single-room-area .room-content .room-feature { display:flex; flex-wrap:wrap; position:relative; z-index:1; margin-bottom:20px; }
         .roberto-scope .single-room-area .room-content .room-feature h6 { flex:0 0 50%; max-width:50%; width:50%; font-weight:400; color:#afb4bf; margin-bottom:10px; font-size:16px; }
         .roberto-scope .single-room-area .room-content .room-feature h6 span { color:#2a303b; display:block; }
-        .roberto-scope .single-room-area .room-content .view-detail-btn { padding:0; font-size:16px; color:#1cc3b2; font-weight:500; display:inline-block; }
+        .roberto-scope .single-room-area .room-content .view-detail-btn { padding:0; font-size:16px; color:#f23a2e; font-weight:500; display:inline-block; }
         .roberto-scope .single-room-area .room-content .view-detail-btn:hover { color:#000; }
         @media (max-width:767px){
           .roberto-scope .single-room-area { flex-wrap:wrap; }
@@ -103,25 +103,25 @@ export default function Rooms() {
         }
 
         /* Buttons */
-        .roberto-scope .roberto-btn { position:relative; z-index:1; min-width:150px; height:46px; line-height:46px; font-size:16px; font-weight:500; display:inline-block; padding:0 40px; text-align:center; text-transform:capitalize; background-color:#1cc3b2; color:#fff; border:none; border-radius:2px; cursor:pointer; transition-duration:500ms; }
-        .roberto-scope .roberto-btn:hover, .roberto-scope .roberto-btn:focus { box-shadow:0 2px 40px 8px rgba(15,15,15,.15); background-color:#fff; color:#1cc3b2; }
+        .roberto-scope .roberto-btn { position:relative; z-index:1; min-width:150px; height:46px; line-height:46px; font-size:16px; font-weight:500; display:inline-block; padding:0 40px; text-align:center; text-transform:capitalize; background-color:#f23a2e; color:#fff; border:none; border-radius:2px; cursor:pointer; transition-duration:500ms; }
+        .roberto-scope .roberto-btn:hover, .roberto-scope .roberto-btn:focus { box-shadow:0 2px 40px 8px rgba(15,15,15,.15); background-color:#fff; color:#f23a2e; }
 
         /* Reservation widget */
         .roberto-scope .hotel-reservation--area { position:relative; z-index:1; }
         .roberto-scope .hotel-reservation--area label, .roberto-scope .hotel-reservation--area .range-price { font-size:18px; display:block; margin-bottom:15px; color:#2a303b; }
         .roberto-scope .hotel-reservation--area .form-control { width:100%; height:50px; text-align:left!important; font-size:14px; padding:0 20px; border:1px solid #ebebeb; border-radius:0!important; background:#fff; color:#636a76; }
-        .roberto-scope .hotel-reservation--area .form-control:focus { outline:none; border-bottom-color:#1cc3b2; }
+        .roberto-scope .hotel-reservation--area .form-control:focus { outline:none; border-bottom-color:#f23a2e; }
         .roberto-scope .hotel-reservation--area button { border-radius:30px!important; }
 
         /* Price slider (jquery-ui markup, static) */
         .roberto-scope .slider-range-price { position:relative; height:5px; background-color:#e8f1f8; border:1px solid #e8f1f8; }
-        .roberto-scope .slider-range-price .ui-slider-range { position:absolute; height:5px; background:#1cc3b2; border:1px solid #e8f1f8; }
-        .roberto-scope .slider-range-price .ui-slider-handle { position:absolute; top:-7px; width:18px; height:18px; border-radius:50%; border:1px solid #1cc3b2; background:#1cc3b2; margin-left:-9px; outline:none; cursor:pointer; }
+        .roberto-scope .slider-range-price .ui-slider-range { position:absolute; height:5px; background:#13482c; border:1px solid #e8f1f8; }
+        .roberto-scope .slider-range-price .ui-slider-handle { position:absolute; top:-7px; width:18px; height:18px; border-radius:50%; border:1px solid #13482c; background:#13482c; margin-left:-9px; outline:none; cursor:pointer; }
 
         /* Pagination */
         .roberto-scope .pagination { position:relative; z-index:1; display:flex; flex-wrap:wrap; padding-left:0; list-style:none; }
         .roberto-scope .pagination .page-link { padding:12px 15px; color:#2a303b; border:none; background-color:#e8f1f8; margin-right:5px; border-radius:3px; display:block; }
-        .roberto-scope .pagination .page-link:hover, .roberto-scope .pagination .page-link:focus { background-color:#1cc3b2; color:#fff; }
+        .roberto-scope .pagination .page-link:hover, .roberto-scope .pagination .page-link:focus { background-color:#f23a2e; color:#fff; }
 
         /* CTA */
         .roberto-scope .roberto-cta-area { position:relative; z-index:1; }

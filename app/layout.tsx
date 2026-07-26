@@ -47,6 +47,54 @@ export default function RootLayout({
         <link rel="stylesheet" href="/theme/css/fonts.css" />
         <link rel="stylesheet" href="/theme/css/style.css" />
         {/* eslint-enable @next/next/no-css-tags */}
+        {/*
+          Header styling: a green/gold top contact bar plus a STATIC (non-sticky)
+          green navbar with gold links — overriding the theme's fixed, transparent
+          navbar and its scroll-triggered .scrolled state.
+        */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              /* Header stacks over the hero; both scroll away (non-sticky). */
+              .site-wrap { position:relative; }
+
+              /* Top contact bar — black background, bold white text, green WhatsApp button */
+              .top-bar { position:absolute; top:0; left:0; width:100%; z-index:40; background:#141414; }
+              .top-bar-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:10px 0; }
+              .top-bar-info { display:flex; flex-wrap:wrap; align-items:center; gap:6px 50px; }
+              .top-bar-info a { color:#c99e54; font-size:14px; font-weight:700; display:inline-flex; align-items:center; }
+              .top-bar-info a:hover { color:#ffffff; }
+              .top-bar-info a { position:relative; }
+              .top-bar-info a:not(:last-child)::after { content:''; position:absolute; right:-25px; top:50%; transform:translateY(-50%); width:1px; height:16px; background:rgba(255,255,255,0.28); }
+              .top-bar-info a > span { margin-right:8px; font-size:15px; }
+              .top-bar-wa { display:inline-flex; align-items:center; gap:8px; background:#2aa845; color:#ffffff; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.04em; padding:9px 22px; border-radius:4px; }
+              .top-bar-wa:hover { background:#238a3a; color:#ffffff; }
+
+              /* Navbar: transparent over the hero, absolute so it scrolls away (not sticky) */
+              .site-navbar-wrap { position:absolute !important; top:44px; left:0; width:100%; z-index:40; background:transparent !important; padding:16px 0 !important; margin-bottom:0 !important; box-shadow:none !important; }
+              .site-navbar-wrap .site-navbar .site-logo a { color:#ffffff; }
+              .site-navbar-wrap .site-menu-toggle span { color:#c99e54; }
+              .site-navbar-wrap .site-navbar .site-navigation .site-menu > li > a { color:#ffffff; font-weight:600; }
+              .site-navbar-wrap .site-navbar .site-navigation .site-menu > li > a:hover { color:#c99e54; }
+              .site-navbar-wrap .site-navbar .site-navigation .site-menu > li.active > a { color:#ffffff !important; }
+
+              .book-now-btn a { display:inline-block; background:#c99e54; color:#13482c; font-weight:600; padding:11px 26px; border-radius:30px; text-transform:uppercase; letter-spacing:.05em; font-size:13px; white-space:nowrap; transition:all .3s ease; }
+              .book-now-btn a:hover { background:#ffffff; color:#13482c; }
+
+              /* --- Responsive header --- */
+              /* Nudge the contact info right only on wide screens where there's room. */
+              @media (min-width: 1200px) { .top-bar-info { margin-left:90px; } }
+              /* On tablet/mobile the desktop nav collapses to a hamburger, so hide
+                 the top contact bar and drop the (transparent) navbar to the very
+                 top — the fixed 44px offset only makes sense under the one-line
+                 top bar shown on large screens. */
+              @media (max-width: 991.98px) {
+                .top-bar { display:none; }
+                .site-navbar-wrap { top:0 !important; padding:12px 0 !important; }
+              }
+            `,
+          }}
+        />
       </head>
       <body>
         <div className="site-wrap">
@@ -59,27 +107,65 @@ export default function RootLayout({
             <div className="site-mobile-menu-body"></div>
           </div>
 
+          <div className="top-bar">
+            <div className="container">
+              <div className="top-bar-inner">
+                <div className="top-bar-info">
+                  <a
+                    href="https://maps.google.com/?q=Ruharo+Nkokonjeru,+Mbarara+City"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="icon-map-marker"></span> Ruharo Nkokonjeru, Mbarara City
+                  </a>
+                  <a href="mailto:info@roostyshomes.com">
+                    <span className="icon-envelope"></span> info@roostyshomes.com
+                  </a>
+                  <a href="tel:+256707113630">
+                    <span className="icon-phone"></span> +256 707 113630
+                  </a>
+                </div>
+                <a
+                  className="top-bar-wa"
+                  href="https://wa.me/256707113630"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="icon-whatsapp"></span> WhatsApp Us
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div className="site-navbar-wrap js-site-navbar bg-white">
             <div className="container">
               <div className="site-navbar bg-light">
                 <div className="py-1">
-                  <div className="row align-items-center">
-                    <div className="col-2">
-                      <h2 className="mb-0 site-logo">
-                        <Link href="/">Roosty&apos;s Homes</Link>
-                      </h2>
-                    </div>
-                    <div className="col-10">
-                      <nav className="site-navigation text-right" role="navigation">
-                        <div className="container">
-                          <div className="d-inline-block d-lg-none  ml-md-0 mr-auto py-3">
-                            <a href="#" className="site-menu-toggle js-menu-toggle">
-                              <span className="icon-menu h3"></span>
-                            </a>
-                          </div>
-                          <SiteNav />
-                        </div>
-                      </nav>
+                  <div className="d-flex align-items-center">
+                    <h2 className="mb-0 site-logo" style={{ flex: '0 0 auto' }}>
+                      <Link href="/" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                        <img
+                          src="/roosty-photos/web-logo-main.jpg.png"
+                          alt="Roosty's Homes logo"
+                          style={{ height: '56px', width: 'auto', marginRight: '12px' }}
+                        />
+                        <span>Roosty&apos;s Homes</span>
+                      </Link>
+                    </h2>
+                    <nav
+                      className="site-navigation"
+                      role="navigation"
+                      style={{ flex: '1 1 auto', textAlign: 'center' }}
+                    >
+                      <div className="d-inline-block d-lg-none  ml-md-0 mr-auto py-3">
+                        <a href="#" className="site-menu-toggle js-menu-toggle">
+                          <span className="icon-menu h3"></span>
+                        </a>
+                      </div>
+                      <SiteNav />
+                    </nav>
+                    <div className="book-now-btn d-none d-lg-block" style={{ flex: '0 0 auto' }}>
+                      <Link href="/contact">Book Now</Link>
                     </div>
                   </div>
                 </div>

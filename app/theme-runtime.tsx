@@ -126,15 +126,8 @@ function onceInit() {
     }
   });
 
-  // Sticky navbar on scroll.
-  $(window).scroll(function () {
-    const navbar = $('.js-site-navbar');
-    if ($(window).scrollTop() > 100) {
-      navbar.addClass('scrolled');
-    } else {
-      navbar.removeClass('scrolled');
-    }
-  });
+  // (The navbar is now static/non-sticky and permanently styled via CSS, so the
+  // theme's scroll-triggered ".scrolled" toggle is intentionally not wired up.)
 
   // Parallax backgrounds (data-stellar-background-ratio).
   $(window).stellar({
