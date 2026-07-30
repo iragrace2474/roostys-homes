@@ -26,40 +26,34 @@ export default function RootLayout({
           reads as an intentional dark hero, not a white splash, and preload the
           first hero image so it paints as early as possible.
         */}
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `.site-blocks-cover{background-color:#2c4a57;}`,
-          }}
-        />
+        <style href="roosty-hero-bg" precedence="theme">{`.site-blocks-cover{background-color:#2c4a57;}`}</style>
         <link rel="preload" as="image" href="/theme/images/hero_1.jpg" />
         {/* eslint-disable @next/next/no-css-tags -- vendored theme stylesheets, loaded in original template order */}
-        <link rel="stylesheet" href="/theme/fonts/icomoon/style.css" />
-        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/theme/css/magnific-popup.css" />
-        <link rel="stylesheet" href="/theme/css/jquery-ui.css" />
-        <link rel="stylesheet" href="/theme/css/owl.carousel.min.css" />
-        <link rel="stylesheet" href="/theme/css/owl.theme.default.min.css" />
-        <link rel="stylesheet" href="/theme/css/bootstrap-datepicker.css" />
-        <link rel="stylesheet" href="/theme/css/animate.css" />
-        <link rel="stylesheet" href="/theme/mediaelement/mediaelementplayer.min.css" />
-        <link rel="stylesheet" href="/theme/fonts/flaticon/font/flaticon.css" />
-        <link rel="stylesheet" href="/theme/css/aos.css" />
-        <link rel="stylesheet" href="/theme/css/fonts.css" />
-        <link rel="stylesheet" href="/theme/css/style.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/fonts/icomoon/style.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/css/bootstrap.min.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/css/magnific-popup.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/css/jquery-ui.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/css/owl.carousel.min.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/css/owl.theme.default.min.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/css/bootstrap-datepicker.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/css/animate.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/mediaelement/mediaelementplayer.min.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/fonts/flaticon/font/flaticon.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/css/aos.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/css/fonts.css" />
+        <link rel="stylesheet" precedence="theme" href="/theme/css/style.css" />
         {/* eslint-enable @next/next/no-css-tags */}
         {/*
           Header styling: a green/gold top contact bar plus a STATIC (non-sticky)
           green navbar with gold links — overriding the theme's fixed, transparent
           navbar and its scroll-triggered .scrolled state.
         */}
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
+        <style href="roosty-header" precedence="theme">{`
               /* Header stacks over the hero; both scroll away (non-sticky). */
               .site-wrap { position:relative; }
 
               /* Top contact bar — black background, bold white text, green WhatsApp button */
-              .top-bar { position:absolute; top:0; left:0; width:100%; z-index:40; background:#141414; }
+              .top-bar { position:absolute; top:0; left:0; width:100%; z-index:40; background:#13482c; }
               .top-bar-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:10px 0; }
               .top-bar-info { display:flex; flex-wrap:wrap; align-items:center; gap:6px 50px; }
               .top-bar-info a { color:#c99e54; font-size:14px; font-weight:700; display:inline-flex; align-items:center; }
@@ -72,6 +66,15 @@ export default function RootLayout({
 
               /* Navbar: transparent over the hero, absolute so it scrolls away (not sticky) */
               .site-navbar-wrap { position:absolute !important; top:44px; left:0; width:100%; z-index:40; background:transparent !important; padding:16px 0 !important; margin-bottom:0 !important; box-shadow:none !important; }
+
+              /* Center the nav in the full width: logo floats left, nav centered. */
+              .navbar-flex { position:relative; }
+              .navbar-flex .site-logo { position:absolute; left:0; top:50%; transform:translateY(-50%); margin:0; }
+              .navbar-flex .site-navigation { flex:1 1 auto; text-align:center; }
+              @media (max-width: 991.98px) {
+                .navbar-flex .site-logo { position:static; transform:none; }
+                .navbar-flex .site-navigation { text-align:right; }
+              }
               .site-navbar-wrap .site-navbar .site-logo a { color:#ffffff; }
               .site-navbar-wrap .site-menu-toggle span { color:#c99e54; }
               .site-navbar-wrap .site-navbar .site-navigation .site-menu > li > a { color:#ffffff; font-weight:600; }
@@ -92,9 +95,7 @@ export default function RootLayout({
                 .top-bar { display:none; }
                 .site-navbar-wrap { top:0 !important; padding:12px 0 !important; }
               }
-            `,
-          }}
-        />
+        `}</style>
       </head>
       <body>
         <div className="site-wrap">
@@ -125,14 +126,9 @@ export default function RootLayout({
                     <span className="icon-phone"></span> +256 707 113630
                   </a>
                 </div>
-                <a
-                  className="top-bar-wa"
-                  href="https://wa.me/256707113630"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="icon-whatsapp"></span> WhatsApp Us
-                </a>
+                <div className="book-now-btn">
+                  <Link href="/contact">Book Now</Link>
+                </div>
               </div>
             </div>
           </div>
@@ -141,8 +137,8 @@ export default function RootLayout({
             <div className="container">
               <div className="site-navbar bg-light">
                 <div className="py-1">
-                  <div className="d-flex align-items-center">
-                    <h2 className="mb-0 site-logo" style={{ flex: '0 0 auto' }}>
+                  <div className="d-flex align-items-center navbar-flex">
+                    <h2 className="mb-0 site-logo">
                       <Link href="/" style={{ display: 'inline-flex', alignItems: 'center' }}>
                         <img
                           src="/roosty-photos/web-logo-main.jpg.png"
@@ -152,11 +148,7 @@ export default function RootLayout({
                         <span>Roosty&apos;s Homes</span>
                       </Link>
                     </h2>
-                    <nav
-                      className="site-navigation"
-                      role="navigation"
-                      style={{ flex: '1 1 auto', textAlign: 'center' }}
-                    >
+                    <nav className="site-navigation" role="navigation">
                       <div className="d-inline-block d-lg-none  ml-md-0 mr-auto py-3">
                         <a href="#" className="site-menu-toggle js-menu-toggle">
                           <span className="icon-menu h3"></span>
@@ -164,9 +156,6 @@ export default function RootLayout({
                       </div>
                       <SiteNav />
                     </nav>
-                    <div className="book-now-btn d-none d-lg-block" style={{ flex: '0 0 auto' }}>
-                      <Link href="/contact">Book Now</Link>
-                    </div>
                   </div>
                 </div>
               </div>
