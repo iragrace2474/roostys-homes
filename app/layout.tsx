@@ -70,7 +70,7 @@ export default function RootLayout({
               /* Center the nav in the full width: logo floats left, nav centered. */
               .navbar-flex { position:relative; }
               .navbar-flex .site-logo { position:absolute; left:0; top:50%; transform:translateY(-50%); margin:0; }
-              .navbar-flex .site-navigation { flex:1 1 auto; text-align:left; }
+              .navbar-flex .site-navigation { flex:1 1 auto; text-align:right; }
               @media (max-width: 991.98px) {
                 .navbar-flex .site-logo { position:static; transform:none; }
                 .navbar-flex .site-navigation { text-align:right; }
