@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Forest green — primary */
+  --color-forest-950: #0a2216;
+  --color-forest-900: #0d2b1c;
+  --color-forest-800: #13482c;
+  --color-forest-700: #1c5c39;
+  --color-forest-600: #246e47;
+  --color-forest-500: #2f7a4d;
+  --color-forest-200: #bcdcc6;
+  --color-forest-100: #dcece0;
+  --color-forest-50: #f0f7f1;
+
+  /* Pale yellow — accent */
+  --color-yellow-500: #e8cc5c;
+  --color-yellow-400: #eeda7c;
+  --color-yellow-300: #f3e3a0;
+  --color-yellow-200: #f7ecbc;
+  --color-yellow-100: #fbf3d2;
+  --color-yellow-50: #fdf9e8;
+
+  /* Neutrals */
+  --color-ink: #1b2b22;
+  --color-ink-soft: #4b5a50;
+  --color-paper: #faf8ef;
+
+  --font-display: var(--font-fraunces), 'Iowan Old Style', serif;
+  --font-body: var(--font-work-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+/* Simple, dependency-free calendar grid used by the booking date picker. */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}

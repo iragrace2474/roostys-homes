@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# sqlite data + admin-uploaded images (served via app/(main)/uploads/[filename]/route.ts, not statically)
+/data/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

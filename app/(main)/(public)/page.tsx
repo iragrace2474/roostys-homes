@@ -1,0 +1,210 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import { listRooms, listServices, listBlogPosts } from '@/lib/db';
+import HeroSlideshow from './hero-slideshow';
+
+export default function HomePage() {
+  const rooms = listRooms().slice(0, 4);
+  const services = listServices().slice(0, 6);
+  const posts = listBlogPosts().slice(0, 3);
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative flex min-h-[88vh] items-end overflow-hidden">
+        <HeroSlideshow />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-950/85 via-forest-950/25 to-forest-950/10" />
+        <div className="relative mx-auto w-full max-w-6xl px-6 pb-20">
+          <span className="inline-block rounded-full bg-yellow-300/90 px-4 py-1 text-xs font-semibold tracking-wide text-forest-900 uppercase">
+            Ruharo Nkokonjeru &middot; Mbarara City
+          </span>
+          <h1 className="mt-5 text-6xl font-semibold tracking-tight text-white uppercase sm:text-7xl lg:text-8xl">
+            Roosty&apos;s Homes
+          </h1>
+          <p className="mt-4 max-w-xl text-xl text-forest-50">
+            Comfort, great food &amp; peaceful stays await.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/book"
+              className="rounded-full bg-yellow-300 px-7 py-3 font-semibold text-forest-900 shadow-lg transition hover:bg-yellow-200"
+            >
+              Book Now
+            </Link>
+            <Link
+              href="/rooms"
+              className="rounded-full border border-white/70 px-7 py-3 font-semibold text-white transition hover:bg-white/10"
+            >
+              View Rooms
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Intro */}
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-sm font-semibold tracking-wide text-forest-600 uppercase">About Us</span>
+          <h2 className="mt-2 text-3xl font-semibold text-forest-900 sm:text-4xl">
+            Roosty&apos;s Homes, Perfect Service
+          </h2>
+          {/*
+            FIXME: founder name and founding year below are placeholders,
+            written in at the user's explicit request to fill real ones in
+            later — do not treat as verified fact.
+          */}
+          <p className="mt-5 leading-relaxed text-ink-soft">
+            Founded in 2016 by Robert Turyamureeba, Roosty&apos;s Homes began as a small family
+            guesthouse and has grown, over nearly a decade, into one of Mbarara&apos;s most loved
+            retreats — built on the belief that great hospitality starts with genuine care for every
+            guest.
+          </p>
+          <p className="mt-4 leading-relaxed text-ink-soft">
+            Today we offer cozy cottages and serviced apartments, a lively bar and restaurant serving
+            hearty meals and refreshing cocktails, beautifully landscaped party gardens for weddings and
+            functions, and a safe, secure environment with attentive staff around the clock — everything
+            you need for a relaxing stay or a memorable celebration.
+          </p>
+          <Link
+            href="/services"
+            className="mt-6 inline-flex items-center gap-2 font-semibold text-forest-800 hover:text-forest-600"
+          >
+            See everything on offer &rarr;
+          </Link>
+        </div>
+      </section>
+
+      {/* Featured rooms */}
+      <section className="bg-forest-50 py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <span className="text-sm font-semibold tracking-wide text-forest-600 uppercase">
+                Where to Stay
+              </span>
+              <h2 className="mt-2 text-3xl font-semibold text-forest-900 sm:text-4xl">Our Rooms</h2>
+            </div>
+            <Link href="/rooms" className="font-semibold text-forest-800 hover:text-forest-600">
+              View all rooms &rarr;
+            </Link>
+          </div>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {rooms.map((room) => (
+              <Link
+                key={room.id}
+                href={`/rooms/${room.slug}`}
+                className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-forest-100 transition hover:shadow-md"
+              >
+                <div className="relative h-44 w-full overflow-hidden">
+                  {room.images[0] && (
+                    <Image
+                      src={room.images[0]}
+                      alt={room.name}
+                      fill
+                      className="object-cover transition duration-300 group-hover:scale-105"
+                    />
+                  )}
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display text-lg font-semibold text-forest-900">{room.name}</h3>
+                  <p className="mt-1 text-sm text-ink-soft">
+                    {room.max_guests} guests &middot; {room.size_sqm} sqm
+                  </p>
+                  <p className="mt-3 font-semibold text-forest-800">
+                    UGX {room.price.toLocaleString()} <span className="text-xs font-normal text-ink-soft">{room.price_unit}</span>
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services teaser */}
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <span className="text-sm font-semibold tracking-wide text-forest-600 uppercase">
+              What We Offer
+            </span>
+            <h2 className="mt-2 text-3xl font-semibold text-forest-900 sm:text-4xl">Services</h2>
+          </div>
+          <Link href="/services" className="font-semibold text-forest-800 hover:text-forest-600">
+            All services &rarr;
+          </Link>
+        </div>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <div key={service.id} className="rounded-2xl border border-forest-100 bg-white p-6">
+              <h3 className="font-display text-lg font-semibold text-forest-900">{service.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Party gardens CTA */}
+      <section className="relative overflow-hidden py-24">
+        <Image src="/roosty-photos/gardens-1.jpg" alt="Party gardens" fill className="object-cover" />
+        <div className="absolute inset-0 bg-forest-950/60" />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <span className="text-sm font-semibold tracking-wide text-yellow-300 uppercase">
+            Party Gardens
+          </span>
+          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+            Host Your Wedding, Party or Function With Us
+          </h2>
+          <p className="mt-4 text-forest-50">
+            Beautiful gardens available for hire, with space for tents, seating and catering.
+          </p>
+          <Link
+            href="/contact"
+            className="mt-8 inline-block rounded-full bg-yellow-300 px-7 py-3 font-semibold text-forest-900 hover:bg-yellow-200"
+          >
+            Enquire Now
+          </Link>
+        </div>
+      </section>
+
+      {/* Blog teaser */}
+      {posts.length > 0 && (
+        <section className="mx-auto max-w-6xl px-6 py-20">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <span className="text-sm font-semibold tracking-wide text-forest-600 uppercase">
+                Latest
+              </span>
+              <h2 className="mt-2 text-3xl font-semibold text-forest-900 sm:text-4xl">
+                Blog &amp; Events
+              </h2>
+            </div>
+            <Link href="/blog" className="font-semibold text-forest-800 hover:text-forest-600">
+              View all &rarr;
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
+              <Link
+                key={post.id}
+                href={`/blog/${post.slug}`}
+                className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-forest-100"
+              >
+                {post.cover_image && (
+                  <div className="relative h-40 w-full">
+                    <Image src={post.cover_image} alt={post.title} fill className="object-cover" />
+                  </div>
+                )}
+                <div className="p-5">
+                  <h3 className="font-display text-lg font-semibold text-forest-900">{post.title}</h3>
+                  <p className="mt-2 line-clamp-2 text-sm text-ink-soft">{post.excerpt}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+    </>
+  );
+}
