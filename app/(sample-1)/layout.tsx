@@ -54,7 +54,7 @@ export default function RootLayout({
 
               /* Top contact bar — black background, bold white text, green WhatsApp button */
               .top-bar { position:absolute; top:0; left:0; width:100%; z-index:40; background:#13482c; }
-              .top-bar-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:10px 0; }
+              .top-bar-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:4px 0; }
               .top-bar-info { display:flex; flex-wrap:wrap; align-items:center; gap:6px 50px; }
               .top-bar-info a { color:#c99e54; font-size:14px; font-weight:700; display:inline-flex; align-items:center; }
               .top-bar-info a:hover { color:#ffffff; }
@@ -65,12 +65,12 @@ export default function RootLayout({
               .top-bar-wa:hover { background:#238a3a; color:#ffffff; }
 
               /* Navbar: transparent over the hero, absolute so it scrolls away (not sticky) */
-              .site-navbar-wrap { position:absolute !important; top:44px; left:0; width:100%; z-index:40; background:transparent !important; padding:16px 0 !important; margin-bottom:0 !important; box-shadow:none !important; }
+              .site-navbar-wrap { position:absolute !important; top:40px; left:0; width:100%; z-index:40; background:transparent !important; padding:16px 0 !important; margin-bottom:0 !important; box-shadow:none !important; }
 
               /* Center the nav in the full width: logo floats left, nav centered. */
               .navbar-flex { position:relative; }
               .navbar-flex .site-logo { position:absolute; left:0; top:50%; transform:translateY(-50%); margin:0; }
-              .navbar-flex .site-navigation { flex:1 1 auto; text-align:center; }
+              .navbar-flex .site-navigation { flex:1 1 auto; text-align:right; }
               @media (max-width: 991.98px) {
                 .navbar-flex .site-logo { position:static; transform:none; }
                 .navbar-flex .site-navigation { text-align:right; }
@@ -81,7 +81,7 @@ export default function RootLayout({
               .site-navbar-wrap .site-navbar .site-navigation .site-menu > li > a:hover { color:#c99e54; }
               .site-navbar-wrap .site-navbar .site-navigation .site-menu > li.active > a { color:#ffffff !important; }
 
-              .book-now-btn a { display:inline-block; background:#c99e54; color:#13482c; font-weight:600; padding:11px 26px; border-radius:30px; text-transform:uppercase; letter-spacing:.05em; font-size:13px; white-space:nowrap; transition:all .3s ease; }
+              .book-now-btn a { display:inline-block; background:#c99e54; color:#13482c; font-weight:600; padding:8px 22px; border-radius:30px; text-transform:uppercase; letter-spacing:.05em; font-size:12px; white-space:nowrap; transition:all .3s ease; }
               .book-now-btn a:hover { background:#ffffff; color:#13482c; }
 
               /* --- Responsive header --- */
@@ -169,9 +169,9 @@ export default function RootLayout({
               <div className="row">
                 <div className="col-md-4">
                   <h3 className="footer-heading mb-4 text-white">About</h3>
-                  <p>
+                  <p style={{ maxWidth: '280px' }}>
                     Roosty&apos;s Homes offers cozy cottages, a lively bar and restaurant,
-                    beautiful gardens, and a fun, safe kids&apos; playground &mdash; where comfort
+                    beautiful gardens, and a fun, safe kids&apos; playground - where comfort
                     meets great food, refreshing drinks, and peaceful stays.
                   </p>
                   <p>
