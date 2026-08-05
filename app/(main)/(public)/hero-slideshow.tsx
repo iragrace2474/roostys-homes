@@ -1,14 +1,12 @@
 import Image from 'next/image';
 
 const SLIDES = [
-  '/roosty-photos/DJI_0002.jpg.jpg',
-  '/roosty-photos/DJI_0021.jpg.jpg',
-  '/roosty-photos/restaurant.jpg',
-  '/roosty-photos/gardens-1.jpg',
+  '/roosty-photos/real/exterior-01.jpg',
+  '/roosty-photos/real/exterior-02.jpg',
   '/roosty-photos/real/exterior-03.jpg',
+  '/roosty-photos/real/family-exterior.jpg',
+  '/roosty-photos/real/livingroom-01.jpg',
   '/roosty-photos/real/livingroom-02.jpg',
-  '/roosty-photos/home.jpg',
-  '/roosty-photos/g-6.jpg',
 ];
 
 const SLOT = 8; // seconds each photo is fully visible

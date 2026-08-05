@@ -132,7 +132,7 @@ export function seedIfEmpty() {
         name: 'Party Gardens',
         description:
           'Beautiful gardens available for hire — weddings, parties and functions, with space for tents, seating and catering.',
-        image: '/roosty-photos/gardens-1.jpg',
+        image: '/roosty-photos/real/exterior-01.jpg',
         sort_order: 2,
         active: 1 as const,
       },
@@ -180,7 +180,7 @@ export function seedIfEmpty() {
         slug: 'secure-premises',
         name: 'Secure Premises',
         description: 'Gated, walled grounds with controlled access and attentive staff around the clock.',
-        image: '/roosty-photos/AT8A2629.jpg-scaled.jpg',
+        image: '/roosty-photos/real/exterior-03.jpg',
         sort_order: 8,
         active: 1 as const,
       },
