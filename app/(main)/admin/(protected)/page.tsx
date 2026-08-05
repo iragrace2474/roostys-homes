@@ -13,7 +13,7 @@ export default function AdminDashboardPage() {
     { label: 'Confirmed bookings', value: confirmed.length, href: '/admin/bookings' },
     { label: 'Rooms', value: rooms.length, href: '/admin/rooms' },
     { label: 'Services', value: services.length, href: '/admin/services' },
-    { label: 'Blog posts', value: posts.length, href: '/admin/blog' },
+    { label: 'Events & blog posts', value: posts.length, href: '/admin/blog' },
   ];
 
   return (

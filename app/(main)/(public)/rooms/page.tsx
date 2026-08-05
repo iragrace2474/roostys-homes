@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { listRooms } from '@/lib/db';
+import ReviewsSection from './reviews-section';
 
 export const metadata: Metadata = { title: "Rooms & Cottages — Roosty's Homes" };
 
@@ -46,6 +47,8 @@ export default function RoomsPage() {
           </Link>
         ))}
       </div>
+
+      <ReviewsSection roomNames={rooms.map((r) => r.name)} />
     </div>
   );
 }

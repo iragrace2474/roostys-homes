@@ -168,7 +168,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Blog teaser */}
+      {/* Events & blog teaser */}
       {posts.length > 0 && (
         <section className="mx-auto max-w-6xl px-6 py-20">
           <div className="flex flex-wrap items-end justify-between gap-4">
@@ -177,10 +177,10 @@ export default function HomePage() {
                 Latest
               </span>
               <h2 className="mt-2 text-3xl font-semibold text-forest-900 sm:text-4xl">
-                Blog &amp; Events
+                Events &amp; Blog
               </h2>
             </div>
-            <Link href="/blog" className="font-semibold text-forest-800 hover:text-forest-600">
+            <Link href="/events" className="font-semibold text-forest-800 hover:text-forest-600">
               View all &rarr;
             </Link>
           </div>
@@ -188,7 +188,7 @@ export default function HomePage() {
             {posts.map((post) => (
               <Link
                 key={post.id}
-                href={`/blog/${post.slug}`}
+                href={`/events/${post.slug}`}
                 className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-forest-100"
               >
                 {post.cover_image && (

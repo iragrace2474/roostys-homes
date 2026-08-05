@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getRoomBySlug, listFullyBookedRanges } from '@/lib/db';
 import BookingForm from '../../booking-form';
-import { ROOM_UNIT_NAMES } from '../../room-unit-names';
+import { ROOM_UNIT_NAMES, unitNounFor } from '../../room-unit-names';
 
 export async function generateMetadata({
   params,
@@ -70,6 +70,7 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
   const unitLabels =
     ROOM_UNIT_LABELS[room.slug] ?? Array.from({ length: room.quantity }, (_, i) => `Room ${i + 1}`);
   const unitNotes = ROOM_UNIT_NOTES[room.slug];
+  const unitNoun = unitNounFor(room.slug);
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
@@ -128,9 +129,11 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
 
       {room.quantity > 1 && unitNames && (
         <div className="mt-14 border-t border-forest-100 pt-12">
-          <h2 className="text-2xl font-semibold text-forest-900">{unitNames.length} Cottages Available</h2>
+          <h2 className="text-2xl font-semibold text-forest-900 capitalize">
+            {unitNames.length} {unitNoun}s Available
+          </h2>
           <p className="mt-2 max-w-2xl text-ink-soft">
-            Every cottage is the same design — pick a name you like, or leave it to us, when you book below.
+            Every {unitNoun} is the same design — pick a name you like, or leave it to us, when you book below.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             {unitNames.map((name) => (
@@ -201,6 +204,7 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
                 price_unit: room.price_unit,
                 disabledRanges,
                 unitNames,
+                unitNoun,
               },
             ]}
           />

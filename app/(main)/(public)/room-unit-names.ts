@@ -18,4 +18,15 @@ export const ROOM_UNIT_NAMES: Record<string, string[]> = {
     'Elisha',
     'Micah',
   ],
+  'family-suite': ['Anna', 'Miriam', 'Deborah'],
 };
+
+// What to call one of the named units above in copy ("Every cottage is...",
+// "Which room would you like?"). Defaults to "room" when a slug has no entry.
+export const ROOM_UNIT_NOUNS: Record<string, string> = {
+  'deluxe-cottage': 'cottage',
+};
+
+export function unitNounFor(slug: string): string {
+  return ROOM_UNIT_NOUNS[slug] ?? 'room';
+}

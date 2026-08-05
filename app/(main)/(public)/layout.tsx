@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import SiteNav from './site-nav';
+import WhatsAppButton from './whatsapp-button';
+import NewsletterSignup from './newsletter-signup';
 
 export default function PublicLayout({
   children,
@@ -28,6 +30,8 @@ export default function PublicLayout({
 
       <main className="flex-1">{children}</main>
 
+      <NewsletterSignup />
+
       <footer className="bg-forest-900 text-forest-100">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -43,7 +47,7 @@ export default function PublicLayout({
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link href="/rooms" className="hover:text-yellow-200">Rooms</Link></li>
               <li><Link href="/services" className="hover:text-yellow-200">Services</Link></li>
-              <li><Link href="/blog" className="hover:text-yellow-200">Blog &amp; Events</Link></li>
+              <li><Link href="/events" className="hover:text-yellow-200">Events &amp; Blog</Link></li>
               <li><Link href="/book" className="hover:text-yellow-200">Book Now</Link></li>
             </ul>
           </div>
@@ -60,16 +64,19 @@ export default function PublicLayout({
 
           <div>
             <h3 className="text-sm font-semibold tracking-wide text-yellow-200 uppercase">Find Us</h3>
-            <p className="mt-3 text-sm text-forest-200">
-              <a
-                href="https://maps.google.com/?q=Ruharo+Nkokonjeru,+Mbarara+City"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-yellow-400/60 underline-offset-4 hover:text-yellow-200"
-              >
-                Open in Google Maps
-              </a>
-            </p>
+            <ul className="mt-3 space-y-2 text-sm text-forest-200">
+              <li><Link href="/location" className="hover:text-yellow-200">View Location &amp; Map</Link></li>
+              <li>
+                <a
+                  href="https://maps.google.com/?q=Roosty%27s+Homes%2C+Ruharo+Nkokonjeru%2C+Mbarara+City"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-yellow-400/60 underline-offset-4 hover:text-yellow-200"
+                >
+                  Open in Google Maps
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -77,6 +84,8 @@ export default function PublicLayout({
           &copy; {new Date().getFullYear()} Roosty&apos;s Homes. All rights reserved.
         </div>
       </footer>
+
+      <WhatsAppButton />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { listRooms, listFullyBookedRanges } from '@/lib/db';
 import BookingForm from '../booking-form';
-import { ROOM_UNIT_NAMES } from '../room-unit-names';
+import { ROOM_UNIT_NAMES, unitNounFor } from '../room-unit-names';
 
 export const metadata: Metadata = { title: "Book Now — Roosty's Homes" };
 
@@ -14,6 +14,7 @@ export default function BookPage() {
     price_unit: room.price_unit,
     disabledRanges: listFullyBookedRanges(room.id),
     unitNames: ROOM_UNIT_NAMES[room.slug],
+    unitNoun: unitNounFor(room.slug),
   }));
 
   return (

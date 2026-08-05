@@ -35,7 +35,7 @@ export default function ContactPage() {
         <div className="overflow-hidden rounded-2xl ring-1 ring-forest-100">
           <iframe
             title="Roosty's Homes location"
-            src="https://www.google.com/maps?q=Ruharo+Nkokonjeru,+Mbarara+City&output=embed"
+            src="https://www.google.com/maps?q=Roosty%27s+Homes%2C+Ruharo+Nkokonjeru%2C+Mbarara+City&output=embed"
             className="h-full min-h-[420px] w-full border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

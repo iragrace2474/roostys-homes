@@ -5,6 +5,8 @@ const SLIDES = [
   '/roosty-photos/DJI_0021.jpg.jpg',
   '/roosty-photos/restaurant.jpg',
   '/roosty-photos/gardens-1.jpg',
+  '/roosty-photos/real/exterior-03.jpg',
+  '/roosty-photos/real/livingroom-02.jpg',
   '/roosty-photos/home.jpg',
   '/roosty-photos/g-6.jpg',
 ];

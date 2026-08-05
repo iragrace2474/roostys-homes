@@ -7,7 +7,7 @@ const LINKS = [
   { href: '/admin/bookings', label: 'Bookings' },
   { href: '/admin/rooms', label: 'Rooms' },
   { href: '/admin/services', label: 'Services' },
-  { href: '/admin/blog', label: 'Blog Posts' },
+  { href: '/admin/blog', label: 'Events & Blog' },
 ];
 
 export default async function AdminProtectedLayout({

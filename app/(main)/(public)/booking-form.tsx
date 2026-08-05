@@ -15,6 +15,8 @@ export type RoomOption = {
    * the guest to pick a preference from. Folded into the submitted message
    * — there's no dedicated backend field for it. */
   unitNames?: string[];
+  /** What to call one of those units in copy ("cottage", "room", ...). */
+  unitNoun?: string;
 };
 
 const initialState: BookingFormState = {};
@@ -34,11 +36,12 @@ export default function BookingForm({
   const [state, formAction, pending] = useActionState(submitBooking, initialState);
 
   const room = rooms.find((r) => r.id === roomId) ?? rooms[0];
+  const unitNoun = room?.unitNoun ?? 'room';
 
-  // There's no backend field for "which named cottage" — fold it into the
+  // There's no backend field for "which named unit" — fold it into the
   // free-text message the admin already sees, rather than adding one.
   const combinedMessage = preferredUnit
-    ? `Preferred cottage: ${preferredUnit}${note ? `\n\n${note}` : ''}`
+    ? `Preferred ${unitNoun}: ${preferredUnit}${note ? `\n\n${note}` : ''}`
     : note;
 
   if (!room) {
@@ -153,8 +156,8 @@ export default function BookingForm({
         </div>
         {room.unitNames && room.unitNames.length > 0 && (
           <div>
-            <label htmlFor="preferred_unit" className="mb-1 block text-sm font-semibold text-forest-900">
-              Which cottage would you like?
+            <label htmlFor="preferred_unit" className="mb-1 block text-sm font-semibold text-forest-900 capitalize">
+              Which {unitNoun} would you like?
             </label>
             <select
               id="preferred_unit"
@@ -162,7 +165,7 @@ export default function BookingForm({
               onChange={(e) => setPreferredUnit(e.target.value)}
               className="w-full rounded-lg border border-forest-200 bg-white px-4 py-2.5 text-ink"
             >
-              <option value="">No preference — any available cottage</option>
+              <option value="">No preference — any available {unitNoun}</option>
               {room.unitNames.map((n) => (
                 <option key={n} value={n}>
                   {n}

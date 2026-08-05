@@ -8,7 +8,7 @@ export default function AdminBlogPage() {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h1 className="font-display text-2xl font-semibold text-forest-900">Blog Posts</h1>
+        <h1 className="font-display text-2xl font-semibold text-forest-900">Events &amp; Blog Posts</h1>
         <Link
           href="/admin/blog/new"
           className="rounded-full bg-forest-800 px-5 py-2.5 text-sm font-semibold text-yellow-100 hover:bg-forest-700"
