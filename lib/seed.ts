@@ -123,7 +123,7 @@ export function seedIfEmpty() {
         name: 'Bar & Restaurant',
         description:
           'Great food, cold drinks and good company — our restaurant and bar serve guests and walk-ins alike, day and night.',
-        image: '/roosty-photos/restaurant.jpg',
+        image: '/roosty-photos/real/restaurant-01.jpg',
         sort_order: 1,
         active: 1 as const,
       },

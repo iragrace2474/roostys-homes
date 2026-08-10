@@ -61,7 +61,7 @@ export default function Home() {
                 <div className="col-xl-12">
                   <div className="slider_text text-center">
                     <h3>Roosty&apos;s Homes</h3>
-                    <p>Comfort, Great Food &amp; Peaceful Stays in Mbarara</p>
+                    <p>Cottages &amp; Apartments &bull; Bar &amp; Restaurant &bull; Party Gardens &bull; Secure Parking</p>
                   </div>
                 </div>
               </div>
@@ -76,7 +76,7 @@ export default function Home() {
                 <div className="col-xl-12">
                   <div className="slider_text text-center">
                     <h3>Cottages &amp; Gardens</h3>
-                    <p>Ruharo Nkokonjeru, Mbarara City</p>
+                    <p>Cottages &bull; Bar &amp; Restaurant &bull; Party Gardens &bull; Secure Parking</p>
                   </div>
                 </div>
               </div>

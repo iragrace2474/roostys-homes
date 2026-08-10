@@ -13,32 +13,6 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative flex min-h-[88vh] items-end overflow-hidden">
         <HeroSlideshow />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-950/85 via-forest-950/25 to-forest-950/10" />
-        <div className="relative mx-auto w-full max-w-6xl px-6 pb-20">
-          <span className="inline-block rounded-full bg-yellow-300/90 px-4 py-1 text-xs font-semibold tracking-wide text-forest-900 uppercase">
-            Ruharo Nkokonjeru &middot; Mbarara City
-          </span>
-          <h1 className="mt-5 text-6xl font-semibold tracking-tight text-white uppercase sm:text-7xl lg:text-8xl">
-            Roosty&apos;s Homes
-          </h1>
-          <p className="mt-4 max-w-xl text-xl text-forest-50">
-            Comfort, great food &amp; peaceful stays await.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/book"
-              className="rounded-full bg-yellow-300 px-7 py-3 font-semibold text-forest-900 shadow-lg transition hover:bg-yellow-200"
-            >
-              Book Now
-            </Link>
-            <Link
-              href="/rooms"
-              className="rounded-full border border-white/70 px-7 py-3 font-semibold text-white transition hover:bg-white/10"
-            >
-              View Rooms
-            </Link>
-          </div>
-        </div>
       </section>
 
       {/* Intro */}
