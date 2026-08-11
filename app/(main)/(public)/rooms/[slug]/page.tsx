@@ -49,6 +49,45 @@ const ROOM_UNIT_NOTES: Record<string, string[]> = {
 const ROOM_AMENITIES: Record<string, string[]> = {
   'studio-room': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
   'one-bedroom-occupancy': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
+  'deluxe-cottage': ['King Bed', 'Ensuite Bathroom (Bath Tub Available)', 'Air Conditioning', 'Smart TV'],
+};
+
+// Frontend-only per-unit photo sets (bedroom/living room/kitchen/bathroom)
+// for the "Individual Rooms" grid below, overriding the default of reusing
+// room.images for every unit. There's no real bathroom photo yet for either
+// unit — PLACEHOLDER: reusing a second bedroom shot in that slot until one
+// exists, per the user's explicit call to do so.
+const ROOM_UNIT_IMAGES: Record<string, { label: string; src: string }[][]> = {
+  'one-bedroom-occupancy': [
+    [
+      { label: 'Bedroom', src: '/roosty-photos/real/1bd-01.jpg' },
+      { label: 'Living Room', src: '/roosty-photos/real/livingroom-01.jpg' },
+      { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/1bd-03.jpg' },
+    ],
+    [
+      { label: 'Bedroom', src: '/roosty-photos/real/1bd-02.jpg' },
+      { label: 'Living Room', src: '/roosty-photos/real/livingroom-02.jpg' },
+      { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/1bd-04.jpg' },
+    ],
+  ],
+  // PLACEHOLDER — no real bathroom photo for this unit yet; reusing a
+  // bedroom shot until a real one exists.
+  'two-bedroom-occupancy': [
+    [
+      { label: 'Queen Bed', src: '/roosty-photos/real/1bd-01.jpg' },
+      { label: 'Living Room', src: '/roosty-photos/real/livingroom-01.jpg' },
+      { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/1bd-05.jpg' },
+    ],
+    [
+      { label: 'Queen Bed', src: '/roosty-photos/real/1bd-02.jpg' },
+      { label: 'Living Room', src: '/roosty-photos/real/livingroom-03.jpg' },
+      { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/family-anna-room.jpg' },
+    ],
+  ],
 };
 
 function GuestsIcon() {
@@ -90,6 +129,7 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
   const unitLabels =
     ROOM_UNIT_LABELS[room.slug] ?? Array.from({ length: room.quantity }, (_, i) => `Room ${i + 1}`);
   const unitNotes = ROOM_UNIT_NOTES[room.slug];
+  const unitImages = ROOM_UNIT_IMAGES[room.slug];
   const unitNoun = unitNounFor(room.slug);
 
   return (
@@ -195,33 +235,45 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
               : 'Identical in design and booked separately — if one is taken, the other may still be free.'}
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            {Array.from({ length: room.quantity }, (_, i) => (
-              <div key={i} className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-forest-100">
-                <div className="grid grid-cols-2 gap-0.5 bg-forest-100">
-                  {(room.images.length > 0 ? room.images : [null, null]).slice(0, 2).map((src, j) =>
-                    src ? (
-                      <div key={src} className="relative h-44">
-                        <Image
-                          src={src}
-                          alt={`${room.name} — ${unitLabels[i]}`}
-                          fill
-                          className="object-cover"
-                          sizes="(min-width: 640px) 25vw, 50vw"
-                        />
-                      </div>
-                    ) : (
-                      <div key={j} className="h-44 bg-forest-50" />
-                    )
-                  )}
+            {Array.from({ length: room.quantity }, (_, i) => {
+              const photos =
+                unitImages?.[i] ??
+                (room.images.length > 0 ? room.images : [null, null])
+                  .slice(0, 2)
+                  .map((src) => ({ label: null as string | null, src }));
+              return (
+                <div key={i} className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-forest-100">
+                  <div className="grid grid-cols-2 gap-0.5 bg-forest-100">
+                    {photos.map((photo, j) =>
+                      photo.src ? (
+                        <div key={photo.src} className="relative h-36">
+                          <Image
+                            src={photo.src}
+                            alt={photo.label ? `${room.name} — ${unitLabels[i]} — ${photo.label}` : `${room.name} — ${unitLabels[i]}`}
+                            fill
+                            className="object-cover"
+                            sizes="(min-width: 640px) 25vw, 50vw"
+                          />
+                          {photo.label && (
+                            <span className="absolute right-1.5 bottom-1.5 rounded bg-forest-950/70 px-1.5 py-0.5 text-[10px] font-semibold text-white uppercase">
+                              {photo.label}
+                            </span>
+                          )}
+                        </div>
+                      ) : (
+                        <div key={j} className="h-36 bg-forest-50" />
+                      )
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between px-5 py-4">
+                    <span className="font-display text-lg font-semibold text-forest-900">{unitLabels[i]}</span>
+                    <span className="rounded-full bg-forest-800 px-3 py-1 text-xs font-semibold text-yellow-100 uppercase">
+                      {unitNotes?.[i] ?? 'Same layout'}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center justify-between px-5 py-4">
-                  <span className="font-display text-lg font-semibold text-forest-900">{unitLabels[i]}</span>
-                  <span className="rounded-full bg-forest-800 px-3 py-1 text-xs font-semibold text-yellow-100 uppercase">
-                    {unitNotes?.[i] ?? 'Same layout'}
-                  </span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}

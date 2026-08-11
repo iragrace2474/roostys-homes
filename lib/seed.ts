@@ -83,7 +83,7 @@ export function seedIfEmpty() {
           'A spacious two-bedroom unit well suited to small groups or families, with a shared living area.',
         price: 250000,
         price_unit: 'per night',
-        max_guests: 6,
+        max_guests: 4,
         size_sqm: 150,
         images: [
           '/roosty-photos/real/livingroom-01.jpg',
