@@ -51,47 +51,69 @@ const ROOM_AMENITIES: Record<string, string[]> = {
   'deluxe-cottage': ['King Bed', 'Ensuite Bathroom (Bath Tub Available)', 'Air Conditioning', 'Smart TV'],
   'two-bedroom-occupancy': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
   'two-bedroom-occupancy-3-4': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
+  'family-cottages': ['Queen Bed', 'Ensuite Bathroom', 'Air Conditioning', 'Smart TV', 'WiFi'],
+};
+
+// Frontend-only photos for named units (e.g. Family Cottages), shown as
+// small labeled photo pairs on each card instead of plain pills, when a slug
+// has an entry here. Anna and Miriam have real, name-matched photos;
+// Deborah's bedroom is a PLACEHOLDER (reused shot) until a real one exists.
+// All three share the one real bathroom photo available so far.
+const ROOM_NAMED_UNIT_PHOTOS: Record<string, Record<string, { label: string; src: string }[]>> = {
+  'family-cottages': {
+    Anna: [
+      { label: 'Bedroom', src: '/roosty-photos/real/cottage-03.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
+    ],
+    Miriam: [
+      { label: 'Bedroom', src: '/roosty-photos/real/cottage-01.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
+    ],
+    Deborah: [
+      { label: 'Bedroom', src: '/roosty-photos/real/1bd-04.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
+    ],
+  },
 };
 
 // Frontend-only per-unit photo sets (bedroom/living room/kitchen/bathroom)
 // for the "Individual Rooms" grid below, overriding the default of reusing
-// room.images for every unit. There's no real bathroom photo yet for either
-// unit — PLACEHOLDER: reusing a second bedroom shot in that slot until one
-// exists, per the user's explicit call to do so.
+// room.images for every unit.
 const ROOM_UNIT_IMAGES: Record<string, { label: string; src: string }[][]> = {
   'one-bedroom-occupancy': [
     [
       { label: 'Bedroom', src: '/roosty-photos/real/1bd-01.jpg' },
       { label: 'Living Room', src: '/roosty-photos/real/livingroom-01.jpg' },
       { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
-      { label: 'Bathroom', src: '/roosty-photos/real/1bd-03.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
     ],
     [
       { label: 'Bedroom', src: '/roosty-photos/real/1bd-02.jpg' },
       { label: 'Living Room', src: '/roosty-photos/real/livingroom-02.jpg' },
       { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
-      { label: 'Bathroom', src: '/roosty-photos/real/1bd-04.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
     ],
   ],
-  // PLACEHOLDER — no real bathroom photo for this unit yet; reusing a
-  // bedroom shot until a real one exists.
+  // Each condo has two master bedrooms (both queen beds), plus a shared
+  // living room, kitchen, and one bathroom.
   'two-bedroom-occupancy': [
     [
       { label: 'Queen Bed', src: '/roosty-photos/real/1bd-01.jpg' },
+      { label: 'Queen Bed', src: '/roosty-photos/real/1bd-02.jpg' },
       { label: 'Living Room', src: '/roosty-photos/real/livingroom-01.jpg' },
       { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
-      { label: 'Bathroom', src: '/roosty-photos/real/1bd-05.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
     ],
     [
-      { label: 'Queen Bed', src: '/roosty-photos/real/1bd-02.jpg' },
+      { label: 'Queen Bed', src: '/roosty-photos/real/1bd-03.jpg' },
+      { label: 'Queen Bed', src: '/roosty-photos/real/cottage-01.jpg' },
       { label: 'Living Room', src: '/roosty-photos/real/livingroom-03.jpg' },
       { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
-      { label: 'Bathroom', src: '/roosty-photos/real/family-anna-room.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
     ],
   ],
   // Each condo has one queen-bed room and one twin-bed room, plus a shared
-  // living/dining area, kitchen, and one bathroom (PLACEHOLDER — no real
-  // bathroom photo yet, reusing a bedroom shot).
+  // living/dining area, kitchen, and one bathroom.
   'two-bedroom-occupancy-3-4': [
     [
       { label: 'Queen Bed', src: '/roosty-photos/real/1bd-03.jpg' },
@@ -99,7 +121,7 @@ const ROOM_UNIT_IMAGES: Record<string, { label: string; src: string }[][]> = {
       { label: 'Living Room', src: '/roosty-photos/real/livingroom-02.jpg' },
       { label: 'Dining Area', src: '/roosty-photos/real/family-dining.jpg' },
       { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
-      { label: 'Bathroom', src: '/roosty-photos/real/1bd-04.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
     ],
     [
       { label: 'Queen Bed', src: '/roosty-photos/real/1bd-05.jpg' },
@@ -107,7 +129,7 @@ const ROOM_UNIT_IMAGES: Record<string, { label: string; src: string }[][]> = {
       { label: 'Living Room', src: '/roosty-photos/real/livingroom-04.jpg' },
       { label: 'Dining Area', src: '/roosty-photos/real/family-dining.jpg' },
       { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
-      { label: 'Bathroom', src: '/roosty-photos/real/family-anna-room.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
     ],
   ],
 };
@@ -153,6 +175,7 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
   const unitNotes = ROOM_UNIT_NOTES[room.slug];
   const unitImages = ROOM_UNIT_IMAGES[room.slug];
   const unitNoun = unitNounFor(room.slug);
+  const namedUnitPhotos = ROOM_NAMED_UNIT_PHOTOS[room.slug];
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
@@ -227,7 +250,46 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
         </div>
       )}
 
-      {room.quantity > 1 && unitNames && (
+      {room.quantity > 1 && unitNames && namedUnitPhotos && (
+        <div className="mt-14 border-t border-forest-100 pt-12">
+          <h2 className="text-2xl font-semibold text-forest-900 capitalize">
+            {unitNames.length} Cottages Available
+          </h2>
+          <p className="mt-2 max-w-2xl text-ink-soft">
+            Each cottage has its own bedroom and ensuite bathroom, and is booked separately — pick a name you
+            like, or leave it to us, when you book below.
+          </p>
+          <div className="mt-6 grid gap-6 sm:grid-cols-3">
+            {unitNames.map((name) => (
+              <div key={name} className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-forest-100">
+                <div className="grid grid-cols-2 gap-0.5 bg-forest-100">
+                  {namedUnitPhotos[name].map((photo) => (
+                    <div key={photo.label} className="relative h-32">
+                      <Image
+                        src={photo.src}
+                        alt={`${room.name} — ${name} — ${photo.label}`}
+                        fill
+                        className="object-cover"
+                      />
+                      <span className="absolute right-1.5 bottom-1.5 rounded bg-forest-950/70 px-1.5 py-0.5 text-[10px] font-semibold text-white uppercase">
+                        {photo.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between px-5 py-4">
+                  <span className="font-display text-lg font-semibold text-forest-900">{name}</span>
+                  <span className="rounded-full bg-forest-800 px-3 py-1 text-xs font-semibold text-yellow-100 uppercase">
+                    Ensuite
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {room.quantity > 1 && unitNames && !namedUnitPhotos && (
         <div className="mt-14 border-t border-forest-100 pt-12">
           <h2 className="text-2xl font-semibold text-forest-900 capitalize">
             {unitNames.length} {unitNoun}s Available

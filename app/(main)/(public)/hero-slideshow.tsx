@@ -31,9 +31,9 @@ const SLIDES = [
     tagline: 'Gated Grounds, Controlled Access & Attentive Staff',
   },
   {
-    src: '/roosty-photos/real/family-exterior.jpg',
-    title: 'Family Suites',
-    tagline: 'Spacious Rooms Built for Family Time',
+    src: '/roosty-photos/real/cottage-04.jpg',
+    title: 'Family Cottages',
+    tagline: 'Standalone Cottages Built for Family Time',
   },
 ];
 

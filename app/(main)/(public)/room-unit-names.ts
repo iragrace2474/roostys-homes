@@ -18,7 +18,7 @@ export const ROOM_UNIT_NAMES: Record<string, string[]> = {
     'Elisha',
     'Micah',
   ],
-  'family-suite': ['Anna', 'Miriam', 'Deborah'],
+  'family-cottages': ['Anna', 'Miriam', 'Deborah'],
 };
 
 // What to call one of the named units above in copy ("Every cottage is...",

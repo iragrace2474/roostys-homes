@@ -21,8 +21,8 @@ const SAMPLE_REVIEWS = [
   {
     name: 'Patricia A.',
     rating: 4,
-    room: 'Family Suite',
-    text: 'Plenty of space for the whole family and the kids loved the play area. Breakfast could be a little earlier.',
+    room: 'Family Cottages',
+    text: 'Our cottage was private and comfortable, and the kids loved the play area. Breakfast could be a little earlier.',
   },
   {
     name: 'Daniel T.',
