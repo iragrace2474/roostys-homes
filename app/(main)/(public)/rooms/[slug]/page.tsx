@@ -26,6 +26,16 @@ const ROOM_FEATURES: Record<string, string[]> = {
     'Dressing mirror',
     'Spacious en-suite bathroom',
   ],
+  'family-cottages': ['Master Bedroom', 'Twin Room', '2 Ensuite Bathrooms'],
+  'annex-room': ['Self-Contained', 'Full Bathroom', 'Shared Living Room, Dining & Kitchen'],
+  'annex-whole-house': [
+    '5 Self-Contained Bedrooms',
+    'Living Room',
+    'Dining Area',
+    'Fully Stocked Kitchen',
+    'Big Parking Space',
+    'Gardens',
+  ],
 };
 
 // Frontend-only labels for the numbered-unit photo cards below (as opposed
@@ -51,27 +61,37 @@ const ROOM_AMENITIES: Record<string, string[]> = {
   'deluxe-cottage': ['King Bed', 'Ensuite Bathroom (Bath Tub Available)', 'Air Conditioning', 'Smart TV'],
   'two-bedroom-occupancy': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
   'two-bedroom-occupancy-3-4': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
-  'family-cottages': ['Queen Bed', 'Ensuite Bathroom', 'Air Conditioning', 'Smart TV', 'WiFi'],
+  'family-cottages': ['Air Conditioning', 'Smart TV', 'WiFi'],
+  'annex-room': ['WiFi', 'Smart TV', 'Fully Stocked Kitchen', 'Parking', 'Gardens'],
+  'annex-whole-house': ['WiFi', 'Smart TV', 'Fully Stocked Kitchen', 'Parking', 'Gardens'],
 };
 
 // Frontend-only photos for named units (e.g. Family Cottages), shown as
-// small labeled photo pairs on each card instead of plain pills, when a slug
-// has an entry here. Anna and Miriam have real, name-matched photos;
-// Deborah's bedroom is a PLACEHOLDER (reused shot) until a real one exists.
-// All three share the one real bathroom photo available so far.
+// small labeled photo grids on each card instead of plain pills, when a slug
+// has an entry here. Each cottage is a double room: a master bedroom and a
+// twin room, each with its own ensuite bathroom. Anna and Miriam's master
+// bedrooms have real, name-matched photos; Deborah's and both twin rooms are
+// PLACEHOLDERS (reused shots) until real ones exist — and all six bathroom
+// slots share the one real bathroom photo available so far.
 const ROOM_NAMED_UNIT_PHOTOS: Record<string, Record<string, { label: string; src: string }[]>> = {
   'family-cottages': {
     Anna: [
-      { label: 'Bedroom', src: '/roosty-photos/real/cottage-03.jpg' },
-      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
+      { label: 'Master Bedroom', src: '/roosty-photos/real/cottage-03.jpg' },
+      { label: 'Master Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
+      { label: 'Twin Room', src: '/roosty-photos/real/twin-01.jpg' },
+      { label: 'Twin Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
     ],
     Miriam: [
-      { label: 'Bedroom', src: '/roosty-photos/real/cottage-01.jpg' },
-      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
+      { label: 'Master Bedroom', src: '/roosty-photos/real/cottage-01.jpg' },
+      { label: 'Master Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
+      { label: 'Twin Room', src: '/roosty-photos/real/twin-02.jpg' },
+      { label: 'Twin Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
     ],
     Deborah: [
-      { label: 'Bedroom', src: '/roosty-photos/real/1bd-04.jpg' },
-      { label: 'Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
+      { label: 'Master Bedroom', src: '/roosty-photos/real/1bd-04.jpg' },
+      { label: 'Master Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
+      { label: 'Twin Room', src: '/roosty-photos/real/twin-01.jpg' },
+      { label: 'Twin Bathroom', src: '/roosty-photos/real/cottage-02.jpg' },
     ],
   },
 };

@@ -118,10 +118,10 @@ export function seedIfEmpty() {
         slug: 'family-cottages',
         name: 'Family Cottages',
         description:
-          'Three standalone cottages — Anna, Miriam, and Deborah — each with its own bedroom and ensuite bathroom, booked separately.',
+          'Three standalone double-room cottages — Anna, Miriam, and Deborah — each with a master bedroom and a twin room, both with their own ensuite bathroom. Booked separately.',
         price: 350000,
         price_unit: 'per night',
-        max_guests: 2,
+        max_guests: 4,
         size_sqm: 400,
         images: [
           '/roosty-photos/real/cottage-04.jpg',
@@ -131,6 +131,43 @@ export function seedIfEmpty() {
         sort_order: 5,
         active: 1 as const,
         quantity: 3,
+      },
+      {
+        slug: 'annex-room',
+        name: 'The Annex (Single Room)',
+        description:
+          'Located in Ruharo, The Annex offers 5 spacious, self-contained rooms, each with its own full bathroom. Guests share a living room, dining area, fully stocked kitchen, big parking space, and gardens to relax in.',
+        price: 100000,
+        price_unit: 'per night',
+        max_guests: 2,
+        size_sqm: 40,
+        images: [
+          '/roosty-photos/real/annex-bedroom.jpg',
+          '/roosty-photos/real/family-anna-room.jpg',
+          '/roosty-photos/real/family-dining.jpg',
+        ],
+        sort_order: 7,
+        active: 1 as const,
+        quantity: 5,
+      },
+      {
+        slug: 'annex-whole-house',
+        name: 'The Annex (Whole House)',
+        description:
+          'Book the entire Annex in Ruharo for your group — all 5 self-contained rooms (each with its own full bathroom), plus the shared living room, dining area, fully stocked kitchen, big parking space, and gardens.',
+        price: 500000,
+        price_unit: 'per night',
+        max_guests: 10,
+        size_sqm: 300,
+        images: [
+          '/roosty-photos/real/family-exterior.jpg',
+          '/roosty-photos/real/annex-bedroom.jpg',
+          '/roosty-photos/real/family-anna-room.jpg',
+          '/roosty-photos/real/family-dining.jpg',
+        ],
+        sort_order: 8,
+        active: 1 as const,
+        quantity: 1,
       },
     ];
     for (const room of rooms) seedInsert(() => createRoom(room));
