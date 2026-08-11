@@ -37,12 +37,11 @@ const ROOM_UNIT_LABELS: Record<string, string[]> = {
   'two-bedroom-occupancy-3-4': ['Room 3', 'Room 4'],
 };
 
-// Frontend-only per-unit badge text, for when the units *aren't* identical
-// (e.g. one has twin beds, the other a queen). Falls back to "Same layout"
-// when a slug has no entry, or when an index has no override.
-const ROOM_UNIT_NOTES: Record<string, string[]> = {
-  'two-bedroom-occupancy-3-4': ['Twin beds', 'Queen bed'],
-};
+// Frontend-only per-unit badge text, for when the units *aren't* identical.
+// Falls back to "Same layout" when a slug has no entry, or when an index has
+// no override. (Rooms 3 & 4 used to be listed here as one twin-only and one
+// queen-only — corrected: both are identical two-bedroom condos.)
+const ROOM_UNIT_NOTES: Record<string, string[]> = {};
 
 // Frontend-only "Room Amenities" list, separate from ROOM_FEATURES above —
 // add an entry per room slug as real amenities are confirmed.
@@ -50,6 +49,8 @@ const ROOM_AMENITIES: Record<string, string[]> = {
   'studio-room': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
   'one-bedroom-occupancy': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
   'deluxe-cottage': ['King Bed', 'Ensuite Bathroom (Bath Tub Available)', 'Air Conditioning', 'Smart TV'],
+  'two-bedroom-occupancy': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
+  'two-bedroom-occupancy-3-4': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
 };
 
 // Frontend-only per-unit photo sets (bedroom/living room/kitchen/bathroom)
@@ -84,6 +85,27 @@ const ROOM_UNIT_IMAGES: Record<string, { label: string; src: string }[][]> = {
     [
       { label: 'Queen Bed', src: '/roosty-photos/real/1bd-02.jpg' },
       { label: 'Living Room', src: '/roosty-photos/real/livingroom-03.jpg' },
+      { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/family-anna-room.jpg' },
+    ],
+  ],
+  // Each condo has one queen-bed room and one twin-bed room, plus a shared
+  // living/dining area, kitchen, and one bathroom (PLACEHOLDER — no real
+  // bathroom photo yet, reusing a bedroom shot).
+  'two-bedroom-occupancy-3-4': [
+    [
+      { label: 'Queen Bed', src: '/roosty-photos/real/1bd-03.jpg' },
+      { label: 'Twin Beds', src: '/roosty-photos/real/twin-01.jpg' },
+      { label: 'Living Room', src: '/roosty-photos/real/livingroom-02.jpg' },
+      { label: 'Dining Area', src: '/roosty-photos/real/family-dining.jpg' },
+      { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
+      { label: 'Bathroom', src: '/roosty-photos/real/1bd-04.jpg' },
+    ],
+    [
+      { label: 'Queen Bed', src: '/roosty-photos/real/1bd-05.jpg' },
+      { label: 'Twin Beds', src: '/roosty-photos/real/twin-02.jpg' },
+      { label: 'Living Room', src: '/roosty-photos/real/livingroom-04.jpg' },
+      { label: 'Dining Area', src: '/roosty-photos/real/family-dining.jpg' },
       { label: 'Kitchen', src: '/roosty-photos/real/kitchen-01.jpg' },
       { label: 'Bathroom', src: '/roosty-photos/real/family-anna-room.jpg' },
     ],
