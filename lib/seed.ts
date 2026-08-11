@@ -23,6 +23,21 @@ export function seedIfEmpty() {
   if (listRooms(false).length === 0) {
     const rooms = [
       {
+        // PLACEHOLDER — added at the user's request with a stand-in photo and
+        // rough price/size/capacity, to be replaced with real ones later.
+        slug: 'studio-room',
+        name: 'Studio Room',
+        description: 'A cozy open-plan studio, perfect for solo travelers or a short stay.',
+        price: 180000,
+        price_unit: 'per night',
+        max_guests: 2,
+        size_sqm: 150,
+        images: ['/roosty-photos/real/1bd-01.jpg'],
+        sort_order: 0,
+        active: 1 as const,
+        quantity: 1,
+      },
+      {
         slug: 'one-bedroom-occupancy',
         name: 'One Bedroom Occupancy',
         description: 'Ideal for couples or solo guests, with easy access to the gardens and restaurant.',

@@ -119,6 +119,16 @@ export default function BookingCalendar({
 
   return (
     <div>
+      <div className="mb-4 grid grid-cols-2 gap-3">
+        <div className="rounded-lg border border-forest-200 bg-white px-4 py-2.5">
+          <span className="block text-xs font-semibold tracking-wide text-forest-600 uppercase">Check-in</span>
+          <span className="text-sm text-ink">{checkIn || 'Select a date'}</span>
+        </div>
+        <div className="rounded-lg border border-forest-200 bg-white px-4 py-2.5">
+          <span className="block text-xs font-semibold tracking-wide text-forest-600 uppercase">Check-out</span>
+          <span className="text-sm text-ink">{checkOut || 'Select a date'}</span>
+        </div>
+      </div>
       <div className="mb-2 flex items-center justify-between">
         <button
           type="button"

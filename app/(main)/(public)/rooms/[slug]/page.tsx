@@ -44,6 +44,25 @@ const ROOM_UNIT_NOTES: Record<string, string[]> = {
   'two-bedroom-occupancy-3-4': ['Twin beds', 'Queen bed'],
 };
 
+// Frontend-only "Room Amenities" list, separate from ROOM_FEATURES above —
+// add an entry per room slug as real amenities are confirmed.
+const ROOM_AMENITIES: Record<string, string[]> = {
+  'studio-room': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
+  'one-bedroom-occupancy': ['DSTV', 'Smart TV', 'WiFi', 'Fully Equipped Kitchen', 'Bathroom (Water Heater Included)'],
+};
+
+function GuestsIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4 shrink-0">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+      />
+    </svg>
+  );
+}
+
 function CheckIcon() {
   return (
     <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5 shrink-0">
@@ -66,6 +85,7 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
 
   const disabledRanges = listFullyBookedRanges(room.id);
   const features = ROOM_FEATURES[room.slug];
+  const amenities = ROOM_AMENITIES[room.slug];
   const unitNames = ROOM_UNIT_NAMES[room.slug];
   const unitLabels =
     ROOM_UNIT_LABELS[room.slug] ?? Array.from({ length: room.quantity }, (_, i) => `Room ${i + 1}`);
@@ -98,7 +118,8 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
       <div className="mt-8 flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="text-4xl font-semibold text-forest-900">{room.name}</h1>
-          <p className="mt-2 text-ink-soft">
+          <p className="mt-2 flex items-center gap-1.5 text-ink-soft">
+            <GuestsIcon />
             {room.max_guests} guests &middot; {room.size_sqm} sqm
           </p>
         </div>
@@ -125,6 +146,23 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
         </div>
       ) : (
         <p className="mt-6 max-w-3xl leading-relaxed text-ink-soft">{room.description}</p>
+      )}
+
+      {amenities && (
+        <div className="mt-10 max-w-3xl">
+          <h2 className="text-lg font-semibold text-forest-900">Room Amenities</h2>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+            {amenities.map((a) => (
+              <li
+                key={a}
+                className="flex items-center gap-3 rounded-xl bg-forest-50 px-4 py-3 text-sm font-medium text-ink"
+              >
+                <CheckIcon />
+                {a}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
 
       {room.quantity > 1 && unitNames && (

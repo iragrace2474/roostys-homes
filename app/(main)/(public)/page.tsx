@@ -62,36 +62,36 @@ export default function HomePage() {
               View all rooms &rarr;
             </Link>
           </div>
+        </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {rooms.map((room) => (
-              <Link
-                key={room.id}
-                href={`/rooms/${room.slug}`}
-                className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-forest-100 transition hover:shadow-md"
-              >
-                <div className="relative h-44 w-full overflow-hidden">
-                  {room.images[0] && (
-                    <Image
-                      src={room.images[0]}
-                      alt={room.name}
-                      fill
-                      className="object-cover transition duration-300 group-hover:scale-105"
-                    />
-                  )}
-                </div>
-                <div className="p-5">
-                  <h3 className="font-display text-lg font-semibold text-forest-900">{room.name}</h3>
-                  <p className="mt-1 text-sm text-ink-soft">
-                    {room.max_guests} guests &middot; {room.size_sqm} sqm
-                  </p>
-                  <p className="mt-3 font-semibold text-forest-800">
-                    UGX {room.price.toLocaleString()} <span className="text-xs font-normal text-ink-soft">{room.price_unit}</span>
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
+        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4">
+          {rooms.map((room) => (
+            <Link
+              key={room.id}
+              href={`/rooms/${room.slug}`}
+              className="group relative block h-[30rem] overflow-hidden transition"
+            >
+              {room.images[0] && (
+                <Image
+                  src={room.images[0]}
+                  alt={room.name}
+                  fill
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/95 via-forest-950/20 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-6">
+                <h3 className="font-display text-xl font-semibold text-white">{room.name}</h3>
+                <p className="mt-1 text-sm text-forest-100">
+                  {room.max_guests} guests &middot; {room.size_sqm} sqm
+                </p>
+                <p className="mt-2 font-semibold text-yellow-300">
+                  UGX {room.price.toLocaleString()}{' '}
+                  <span className="text-xs font-normal text-forest-100">{room.price_unit}</span>
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

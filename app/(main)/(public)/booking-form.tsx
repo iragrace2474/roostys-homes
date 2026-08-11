@@ -138,6 +138,7 @@ export default function BookingForm({
               required
               className="w-full rounded-lg border border-forest-200 bg-white px-4 py-2.5"
             />
+            <p className="mt-1 text-xs text-ink-soft">Please make sure this number is on WhatsApp.</p>
           </div>
         </div>
         <div>
